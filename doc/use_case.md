@@ -12,9 +12,9 @@ actor "Волк" as Wolf
 actor "Медведь" as Bear
 
 package "Управление теремком" {
-  usecase "Запрос на поселение" as Request
-  usecase "Проверка свободных мест" as CheckSpace
-  usecase "Разрушить теремок" as Destroy
+    usecase "Запрос на поселение" as Request
+    usecase "Проверка свободных мест" as CheckSpace
+    usecase "Разрушить теремок" as Destroy
 }
 
 Mouse --> Request
@@ -27,4 +27,3 @@ Bear --> Request
 Request ..> CheckSpace : <<include>>
 Request ..> Destroy : <<extend>> (если зверь = Медведь)
 @enduml
-```
