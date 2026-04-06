@@ -1,0 +1,27 @@
+@startuml
+skinparam conditionStyle inside
+title Алгоритм заселения в теремок
+
+start
+
+:Зверь делает запрос на поселение;
+
+if (Зверь = Медведь?) then (да)
+  #pink:Теремок разрушается;
+  :Все жильцы покидают теремок;
+  stop
+else (нет)
+  :Цикл опроса жильцов;
+  :Проверить totalWeight + вес_зверя <= maxWeight;
+  
+  if (превышает лимит?) then (да)
+    :Отказ во входе;
+    :Зверь уходит;
+  else (нет)
+    :Зверь заселяется;
+    :Увеличить currentOccupants и totalWeight;
+  endif
+endif
+
+stop
+@enduml
