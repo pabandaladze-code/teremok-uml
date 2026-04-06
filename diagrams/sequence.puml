@@ -1,0 +1,29 @@
+@startuml
+title Заселение Лисы в теремок
+
+actor "Лиса" as Fox
+participant "House" as H
+participant "Мышка" as Mouse
+participant "Лягушка" as Frog
+participant "Зайчик" as Hare
+
+Fox -> H : requestEntry()
+activate H
+
+H -> Mouse : "Кто-кто в теремочке живёт?"
+Mouse --> H : "Я, Мышка!"
+
+H -> Frog : "Кто-кто в теремочке живёт?"
+Frog --> H : "Я, Лягушка!"
+
+H -> Hare : "Кто-кто в теремочке живёт?"
+Hare --> H : "Я, Зайчик!"
+
+H -> H : проверить вес
+alt вес не превышает лимит
+  H -> Fox : разрешить вход
+else
+  H -> Fox : отказать
+end
+deactivate H
+@enduml
